@@ -1,0 +1,22 @@
+.modal {
+    background-color: var(--grey-bg-light);
+    border: var(--border-deepdark);
+    max-width: 40%;
+
+    &__inner {
+        padding: 35px 20px;
+        //width: 500px;
+    }
+
+    a {
+        font-weight: 700;
+        &:hover {
+            color: var(--main-color-hover);
+        }
+    }
+}
+
+.fancybox__backdrop {
+    background-color: var(--grey-bg-dark-7);
+    backdrop-filter: blur(30px) grayscale(100%) brightness(120%);
+}
