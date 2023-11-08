@@ -35,7 +35,8 @@
     }
     &__img {
         width: 100%;
-        padding-bottom: 100%;
+        //padding-bottom: 100%;
+        padding-bottom: 75%;
         position: relative;
         display: block;
         overflow: hidden;
@@ -98,8 +99,48 @@
         transition: var(--trns);
     }
 
+    &__price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+            font-weight: 600;
+            pointer-events: none;
+        }
+
+
+        .new, .order, .used {
+            padding: 6px 10px;
+            background-color: transparent;
+            font-weight: 300;
+            font-family: 'Roboto Condensed';
+            letter-spacing: .1em;
+            font-size: 13px;
+            text-transform: uppercase;
+            line-height: 10px;
+
+            opacity: .7;
+        }
+
+        .new {
+            border: 1px solid var(--main-color-hover);
+            color: var(--main-color-hover);
+        }
+
+        .order {
+            border: 1px solid var(--main-color-light);
+            color: var(--main-color-light);
+        }
+
+        .used {
+            border: 1px solid var(--border-light-color);
+            color: var(--border-light-color);
+        }
+    }
+
     &__item {
         transition: var(--trns);
+        display: none;
         //position: relative;
 
         &.nextstop ~ .catalog__item {
@@ -115,16 +156,44 @@
             }
         }
 
-        &.sold {
-            .catalog__img {
-                img {
-                    filter: saturate(0);                    
-                    opacity: .5;
-                }
-            }
-            .catalog__price {
-                opacity: .7;
-            }
+        &.active {
+            display: block;
+            animation: fadeIn .6s;
+        }
+    }
+
+
+    &__tab-content {
+        display: none;
+        transition: var(--trns);
+        &.active {
+            display: block;
+            animation: fadeIn .8s;
+        }
+    }
+    &__tabs {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;    
+        border-bottom: var(--border-deepdark);    
+    }
+    &__tab {
+        padding: 17px 30px;
+        color: var(--white-text-dark);
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: var(--trns);
+        border-bottom: 1px solid transparent;
+
+
+        &.active {
+            color: var(--white-text);
+            border-bottom: 1px solid var(--main-color);
+        }
+
+        &:hover {
+            color: var(--main-color-hover);
+            border-bottom: 1px solid var(--main-color-hover);
         }
     }
 

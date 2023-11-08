@@ -1,0 +1,26 @@
+.simplebar-scrollbar {
+    cursor: pointer;
+
+    &:before {
+        //background-color: var(--purp);
+        background-color: var(--border-deepdark-color);
+        transition: var(--trns);
+        width: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--border-light-color);
+        }
+    }
+}
+
+[data-scroll-y] {
+    .simplebar-scrollbar {
+        &:before {
+            background-color: var(--border-light-color);
+            border-radius: 0;
+            width: 5px;
+            transition: var(--trns);
+        }
+    }
+}

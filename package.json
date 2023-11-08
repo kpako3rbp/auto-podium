@@ -63,6 +63,7 @@
     "noty": "^3.2.0-beta-deprecated",
     "nouislider": "^15.7.0",
     "resize-observer-polyfill": "^1.5.1",
-    "shufflejs": "^6.1.0"
+    "shufflejs": "^6.1.0",
+    "simplebar": "^6.2.5"
   }
 }

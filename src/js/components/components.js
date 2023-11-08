@@ -1,7 +1,10 @@
 import { Fancybox } from '@fancyapps/ui';
 import { Carousel } from '@fancyapps/ui';
 import { Autoplay } from '@fancyapps/ui/dist/carousel/carousel.autoplay.umd.js';
+import SimpleBar from 'simplebar';
 import Inputmask from 'inputmask';
+
+import { anchorToElement, handleScrollForHeader, initBurgerMenu, initCarFilters } from '../helpers/helpers.js';
 
 export default () => {
   Fancybox.bind('[data-fancybox]', {
@@ -13,6 +16,15 @@ export default () => {
       },
     },
   });
+
+  const scrolledWindows = document.querySelectorAll('[data-scroll-y]');
+  if (scrolledWindows.length > 0) {
+    scrolledWindows.forEach((window) => {
+      new SimpleBar(window, {
+        autoHide: false,
+      });
+    });
+  }
 
   const flashFara = () => {
     const faraEl = document.getElementById('fara');
@@ -129,6 +141,10 @@ export default () => {
   setPhoneMask();
 
   const showMoreBtn = () => {
+    const moreBtn = document.querySelector('.more-btn');
+    if (!moreBtn) {
+      return;
+    }
     document.addEventListener('DOMContentLoaded', function () {
       const limit = 6;
       const nextOpen = (wrapper, button) => {
@@ -148,4 +164,16 @@ export default () => {
     });
   };
   showMoreBtn();
+
+  const headerEl = document.querySelector('.header');
+  handleScrollForHeader(headerEl);
+
+  // Якори
+  anchorToElement();
+
+  //Бургер
+  initBurgerMenu();
+
+  //Табы с авто
+  initCarFilters();
 };

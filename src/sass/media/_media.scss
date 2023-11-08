@@ -3,6 +3,15 @@
         max-width: 1140px;
     }
 
+    .header {
+        &__inner {
+            padding: 0 40px;
+        }
+        &__contacts, &__divider {
+            display: none;
+        }
+    }
+
     .about {
         &__lcw {
             width: 70%;
@@ -50,6 +59,21 @@
     .header {
         &__inner {
             padding: 0 30px;
+        }
+
+        nav {
+            display: none;
+        }
+
+        &__burger {
+            display: block;
+        }
+
+        &__contacts {
+            display: flex;
+        }
+        &__divider {
+            display: block;
         }
     }
 
@@ -264,6 +288,10 @@
         button {
             display: none;
         }
+
+        &__call {
+            display: none;
+        }
     }
 
     .promo {
@@ -287,6 +315,40 @@
                 .catalog__sold-text {
                     opacity: 100%;
                 }
+            }
+        }
+
+        &__tabs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border-bottom: none;
+        }
+
+        &__tab {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* &:nth-child(1) {
+                border-right: var(--border-deepdark);
+                border-bottom: var(--border-deepdark);
+            }
+            &:nth-child(2) {
+                border-bottom: var(--border-deepdark);
+            }
+            &:nth-child(3) {
+                border-right: var(--border-deepdark);
+            }
+            &:nth-child(4) {
+            } */
+
+            border: var(--border-deepdark);
+
+            &:hover {
+                border: 1px solid var(--main-color-hover);
+            }
+
+            &.active {
+                border: 1px solid var(--main-color);
             }
         }
     }
@@ -404,13 +466,17 @@
 
 
     .header {
-        &__call {
-            display: none;
+        &__inner {
+            padding: 0 10px;
         }
-
         &__logo {
-            width: 100%;
+            //width: 100%;
         }
+    }
+
+    .menu {
+        width: 90%;
+        right: -90%;
     }
 
     .promo {
@@ -485,5 +551,13 @@
 
     .promo-page {
         padding-top: 140px;
+    }
+}
+
+@media (max-width: 376px) {
+    .catalog {
+        &__tabs {
+            grid-template-columns: 100%;
+        }
     }
 }
