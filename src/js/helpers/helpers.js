@@ -126,6 +126,7 @@ export function initCarFilters() {
 
   const resetFilters = () => {
     document.querySelectorAll('.catalog__item').forEach((i) => i.classList.add('active'));
+    filterTabsContainer.querySelector('[data-car-filter="all-auto"]').classList.add('active');
   };
 
   filterTabEls.forEach((tab) => {
